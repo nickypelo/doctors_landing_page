@@ -1,0 +1,99 @@
+---
+
+---
+
+<div class="relative w-full overflow-hidden">
+    <div id="carousel" class="carousel flex transition-transform duration-300">
+      <!-- Slide 1 -->
+      <div class="slide w-[300px] bg-red-500 text-white h-64 flex items-center justify-center">
+        Slide 1
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide w-[300px] bg-blue-500 text-white h-64 flex items-center justify-center">
+        Slide 2
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide w-[300px] bg-green-500 text-white h-64 flex items-center justify-center">
+        Slide 3
+      </div>
+      <!-- Slide 4 -->
+      <div class="slide w-[300px] bg-yellow-500 text-white h-64 flex items-center justify-center">
+        Slide 4
+      </div>
+      <!-- Slide 5 -->
+      <div class="slide w-[300px] bg-purple-500 text-white h-64 flex items-center justify-center">
+        Slide 5
+      </div>
+      <!-- Slide 6 -->
+      <div class="slide w-[300px] bg-pink-500 text-white h-64 flex items-center justify-center">
+        Slide 6
+      </div>
+      <!-- Slide 7 -->
+      <div class="slide w-[300px] bg-orange-500 text-white h-64 flex items-center justify-center">
+        Slide 7
+      </div>
+    </div>
+    <!-- Navigation buttons -->
+    <button class="absolute top-1/2 transform -translate-y-1/2 left-4 bg-white text-black rounded-full p-2 shadow-md" onclick="prevSlide()" id="myLeft">
+      &#10094;
+    </button>
+    <button class="absolute top-1/2 transform -translate-y-1/2 right-4 bg-white text-black rounded-full p-2 shadow-md" onclick="nextSlide()" id="myRight">
+      &#10095;
+    </button>
+  </div>
+
+  <script>
+    const myLeft = document.getElementById("myLeft");
+    const myRight = document.getElementById("myRight");
+
+    let currentSlide = 0;
+    const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    // Clone first and last slides for seamless transition
+    for (let i = 0; i < 4; i++) {
+      const firstClone = slides[i].cloneNode(true);
+      const lastClone = slides[totalSlides - 1 - i].cloneNode(true);
+      carousel?.appendChild(firstClone);
+      carousel?.insertBefore(lastClone, slides[0]);
+    }
+
+    function showSlide(index: number, instant = false) {
+      if (instant) {
+        carousel?.classList.remove('transition-transform');
+      } else {
+        carousel?.classList.add('transition-transform');
+      }
+      carousel.style.transform = `translateX(-${(index + 4) * 25}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+      if (currentSlide === totalSlides) {
+        setTimeout(() => {
+          currentSlide = 0;
+          showSlide(currentSlide, true);
+        }, 300);
+      }
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      showSlide(currentSlide);
+      if (currentSlide === -4) {
+        setTimeout(() => {
+          currentSlide = totalSlides - 4;
+          showSlide(currentSlide, true);
+        }, 300);
+      }
+    }
+
+    // Initialize
+    showSlide(currentSlide);
+
+    myLeft?.addEventListener("click", prevSlide);
+    myRight?.addEventListener("click", nextSlide);
+
+  </script>

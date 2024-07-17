@@ -1,0 +1,276 @@
+---
+import ServiceBox from "./service_box.astro";
+import HospitalBox from "./hospital_box.astro";
+
+const details = [
+    {
+        header: "Surgical Services",
+        information: "Surgical services means surgical procedures performed in a safe..."
+    },
+    {
+        header: "Hematology Services",
+        information: "Bleeding disorders: After a cut or scrape, proteins in the blood help... "
+    },
+    {
+        header: "Infectious Diseases",
+        information: "Infectious diseases are illnesses caused by harmful agents..."
+    },
+    {
+        header: "Cardiology Services",
+        information: "Cardiology focuses on the diagnosis and treatment of the cardiovascular..."
+    },
+    {
+        header: "Primary care clinics",
+        information: "Primary care clinics cover a wide range of routine and preventive..."
+    },
+    {
+        header: "Specialized clinics",
+        information: "The providers in a specialized clinic will have specific training that..."
+    },
+    {
+        header: "Mental health clinics",
+        information: "The healthcare providers who work at a mental health clinic are focu..."
+    },
+    {
+        header: "Dialysis clinics",
+        information: "Dialysis is a procedure that helps filter waste and other potentially ..."
+    },
+]
+
+const hospitals = [
+    {
+        name: "St. Mariot Hospital",
+        details: "The goal of the rural health clinic program is to provide better access to care in rural, underserved...",
+        place: "Tokyo, Japan",
+        rating: "4.9 | 5.0 "
+    },
+    {
+        name: "St. Civil Hospital",
+        details: "Rural health clinics serve people who have Medicare, Medicaid, or private insurance.",
+        place: "Paris, France",
+        rating: "4.9 | 5.0 "
+    },
+    {
+        name: "St. Mentor Hospital",
+        details: "Rural health clinics provide medically necessary primary or preventive care. A service is considered...",
+        place: "New York, US ",
+        rating: "4.9 | 5.0 "
+    },
+    {
+        name: "St. Josheph Hospital",
+        details: "If the clinic doesn’t offer a specific service, the clinic staff may be able to arrange for you to receive medically...",
+        place: "Sydney, Australia ",
+        rating: "4.9 | 5.0 "
+    }
+    
+]
+---
+
+
+<!-- notice service section -->
+<section class="text-primary text-sm">
+    <div class="max-w-primary mx-auto md:grid md:grid-cols-2">
+        <div class="md:cols-span-1 bg-black h-[400px]"></div>
+        <div class="md:cols-span-1 flex flex-col justify-center p-4">
+            <h4 class="mb-4">Hospital</h4>
+            <h2 class="text-5xl font-black mb-6">Substance abuse treatment</h2>
+            <p class="mb-6">Clinic, an organized medical service offering diagnostic, therapeutic, or preventive outpatient services. Often, the term covers an entire medical teaching centre, including the hospital and the outpatient facilities.</p>
+            <button class="font-bold w-24 h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary">
+                Read More
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- find service section -->
+ <section class="bg-secondary text-primary text-sm">
+    <div class="max-w-primary mx-auto md:grid md:grid-cols-2 py-10">
+        <div class="md:col-span-1 pr-8">
+            <h4 class="mb-4 font-semibold">Hospital</h4>
+            <h2 class="text-5xl mb-6">Find <span class="font-bold">service</span></h2>
+            <p class="mb-4">The medical care offered by a clinic may or may not be connected with a hospital.</p>
+            <button class="mb-10 font-bold w-24 text-secondary h-10 bg-primary transition-colors duration-500 hover:bg-secondary hover:text-primary border border-primary">
+                Read More
+            </button>
+            <div class="bg-black h-96"></div>
+        </div>
+
+        <article class="md:grid md:grid-cols-2 gap-6">
+            {details.map(item =>(
+                <ServiceBox header={item.header} information={item.information}/>
+            ))}
+        </article>
+    </div>
+ </section>
+
+ <!-- find hospital section -->
+<section class="bg-primary">
+<div class="max-w-primary mx-auto md:grid md:grid-cols-2 py-10 items-center">
+    <div class="md:col-span-1 ">
+        <article class="md:grid md:grid-cols-2 gap-6">
+            {hospitals.map(item =>(
+                <HospitalBox
+                    name={item.name}
+                    details={item.details}
+                    place={item.place}
+                    rating={item.rating} 
+                />
+            ))}
+        </article>
+    </div>
+    <div class="md:col-span-1 text-secondary text-sm">
+        <div class="md:col-span-1 pl-8">
+            <h4 class="mb-4 font-semibold">Hospital</h4>
+            <h2 class="text-5xl mb-6">Find <span class="font-bold">hospital</span></h2>
+            <p class="mb-4">Hospital, an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process.</p>
+            <button class="mb-10 font-bold w-24 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary border border-secondary">
+                Read More
+            </button>
+            <div class="bg-black h-96"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+  <!-- other chronic disease care -->
+<section class="py-12">
+    <div class="max-w-primary mx-auto md:grid md:grid-cols-2 text-primary items-center text-sm">
+        <div class="md:col-span-1 pr-8">
+            <h4 class="mb-4 font-semibold">Hospital</h4>
+            <h2 class="text-5xl mb-6 font-bold">Other chronic <span class="block">disease care</span></h2>
+            <p class="mb-4">This includes care for conditions such as diabetes, heart disease, and cancer.</p>
+            <button class="mb-10 font-bold w-32 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary">
+                Read More
+            </button>
+        </div>
+        <div class="bg-black h-80"></div>
+    </div>
+
+    <!-- primary-care -->
+    <div class="bg-primary max-w-primary mx-auto">
+        <div class="md:grid md:grid-cols-2 text-primary text-sm my-8">
+            <div class="bg-black h-96"></div>
+
+            <div class="md:col-span-1 px-4 py-8 text-secondary items-center ">
+                <h4 class="mb-4 font-semibold">Hospital</h4>
+                <h2 class="text-5xl mb-6 font-bold text-white">Primary care</h2>
+                <p class="mb-4">In addition to these general services, some clinics may also offer specialized services, such as:</p>
+                <div>
+                    <ul>
+                        <li class="flex gap-2 items-center mb-1">
+                            <div class="w-10">
+                                <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
+                            </div>
+                            <p class="inline">Primary care: This includes routine checkups, vaccinations, and treatment for minor illnesses.</p>
+                        </li>
+                        <li class="flex gap-2 items-center mb-1">
+                            <div class="w-10">
+                                <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
+                            </div>
+                            <p>Urgent care: This is for when you need medical attention but your condition is not life-threatening.</p>
+                        </li>
+                        <li class="flex gap-2 items-center mb-1">
+                            <div class="w-10">
+                                <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
+                            </div>
+                            <p>Specialty care: This includes treatment for specific conditions, such as cancer, heart disease, or diabetes.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- find your doctor -->
+ <section class="text-primary font-bold mb-16">
+    <div class="max-w-primary mx-auto text-center">
+        <h4 class="mb-4">Hospital</h4>
+        <h2 class="text-5xl font-normal mb-8">Find <span class="font-black">your Doctor</span></h2>
+        <div class="flex gap-6 w-4/5 mx-auto flex-wrap">
+            <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">General Practitioner</div>
+            <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">Dentist</div>
+            <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">Optometrist</div>
+            <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">More ...</div>
+        </div>
+
+        <!-- carousel -->
+     <div class="h-96 mt-8 mb-12 text-left flex justify-center gap-4">
+        <div class="w-64">
+            <HospitalBox 
+                name="Dr. Palesa Hlahatsi"
+                details="Taking care of all physical and metal health."
+                place="Johannesburg"
+                rating="4.0"
+            />
+        </div>
+        <div class="w-64">
+            <HospitalBox 
+                name="Dr. Palesa Hlahatsi"
+                details="Taking care of all physical and metal health."
+                place="Johannesburg"
+                rating="4.0"
+            />
+        </div>
+        <div class="w-64">
+            <HospitalBox 
+                name="Dr. Palesa Hlahatsi"
+                details="Taking care of all physical and metal health."
+                place="Johannesburg"
+                rating="4.0"
+            />
+        </div>
+        <div class="w-64">
+            <HospitalBox 
+                name="Dr. Palesa Hlahatsi"
+                details="Taking care of all physical and metal health."
+                place="Johannesburg"
+                rating="4.0"
+            />
+        </div>
+     </div>
+    </div>
+ </section>
+
+
+ <!-- testimonials -->
+<section class="bg-secondary py-8">
+    <div class="max-w-primary mx-auto text-sm text-primary">
+        <h4 class="font-bold">Hospital</h4>
+        <h2 class="text-5xl font-bold">Testimonials</h2>
+
+        <div class="flex gap-4 mt-8">
+            <div class="flex bg-white p-4 max-w-[370px]">
+                <div class="w-2/3">
+                    <h4 class="font-bold text-xl mb-2">Harmony Clinic</h4>
+                    <p>I was very nervous about going to the clinic.</p>
+                </div>
+                <div class="w-1/3">
+                    <p class="mb-4"><span class="font-semibold">Localization:</span> Katlehong</p>
+                    <p><span class="font-semibold">Rating:</span> 3.8</p>
+                </div>
+            </div>
+            <div class="flex bg-white p-4 max-w-[370px]">
+                <div class="w-2/3">
+                    <h4 class="font-bold text-lg">Harmony Clinic</h4>
+                    <p>I was very nervous about going to the clinic.</p>
+                </div>
+                <div class="w-1/3">
+                    <p><span class="font-semibold">Localization:</span> Katlehong</p>
+                    <p><span class="font-semibold">Rating:</span> 3.8</p>
+                </div>
+            </div>
+            <div class="flex bg-white p-4 max-w-[370px]">
+                <div class="w-2/3">
+                    <h4 class="font-bold text-lg">Harmony Clinic</h4>
+                    <p>I was very nervous about going to the clinic, but the s</p>
+                </div>
+                <div class="w-1/3">
+                    <p><span class="font-semibold">Localization:</span> Katlehong</p>
+                    <p><span class="font-semibold">Rating:</span> 3.8</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

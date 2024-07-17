@@ -1,0 +1,21 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import Body from "../components/body.astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <Header/>
+        <main>
+            <Body/>
+            <slot/>
+        </main>
+        <Footer />
+    </body>
+</html>
+
