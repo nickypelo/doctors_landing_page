@@ -2,6 +2,7 @@
 import ServiceBox from "./service_box.astro";
 import HospitalBox from "./hospital_box.astro";
 import Carousel from "./carousel.astro";
+import DoctorCarousel from "./doctor_carousel.astro";
 
 const details = [
     {
@@ -138,13 +139,13 @@ const hospitals = [
 </section>
 
   <!-- other chronic disease care -->
-<section class="py-12">
+<section class="py-12 px-2">
     <div class="max-w-primary mx-auto md:grid md:grid-cols-2 text-primary items-center text-sm">
         <div class="md:col-span-1 pr-8">
             <h4 class="mb-4 font-semibold">Hospital</h4>
-            <h2 class="text-5xl mb-6 font-bold">Other chronic <span class="block">disease care</span></h2>
+            <h2 class="text-3xl md:text-5xl mb-6 font-bold">Other chronic <span>disease care</span></h2>
             <p class="mb-4">This includes care for conditions such as diabetes, heart disease, and cancer.</p>
-            <button class="mb-10 font-bold w-32 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary">
+            <button class="mb-8 font-bold w-32 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary">
                 Read More
             </button>
         </div>
@@ -153,28 +154,28 @@ const hospitals = [
 
     <!-- primary-care -->
     <div class="bg-primary max-w-primary mx-auto">
-        <div class="md:grid md:grid-cols-2 text-primary text-sm my-8">
+        <div class="md:grid md:grid-cols-2 text-primary text-sm my-6">
             <div class="bg-black h-96"></div>
 
             <div class="md:col-span-1 px-4 py-8 text-secondary items-center ">
                 <h4 class="mb-4 font-semibold">Hospital</h4>
-                <h2 class="text-5xl mb-6 font-bold text-white">Primary care</h2>
+                <h2 class="text-3xl md:text-5xl mb-6 font-bold text-white">Primary care</h2>
                 <p class="mb-4">In addition to these general services, some clinics may also offer specialized services, such as:</p>
-                <div>
+                <div class="font-medium">
                     <ul>
-                        <li class="flex gap-2 items-center mb-1">
+                        <li class="flex gap-2 items-center mb-2">
                             <div class="w-10">
                                 <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
                             </div>
                             <p class="inline">Primary care: This includes routine checkups, vaccinations, and treatment for minor illnesses.</p>
                         </li>
-                        <li class="flex gap-2 items-center mb-1">
+                        <li class="flex gap-2 items-center mb-2">
                             <div class="w-10">
                                 <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
                             </div>
                             <p>Urgent care: This is for when you need medical attention but your condition is not life-threatening.</p>
                         </li>
-                        <li class="flex gap-2 items-center mb-1">
+                        <li class="flex gap-2 items-center">
                             <div class="w-10">
                                 <span class="w-8 h-8 rounded-full flex justify-center items-center bg-white text-primary text-xl">+</span>
                             </div>
@@ -188,51 +189,21 @@ const hospitals = [
 </section>
 
 <!-- find your doctor -->
- <section class="text-primary font-bold mb-16">
+ <section class="text-primary font-bold mb-12">
     <div class="max-w-primary mx-auto text-center">
         <h4 class="mb-4">Hospital</h4>
         <h2 class="text-5xl font-normal mb-8">Find <span class="font-black">your Doctor</span></h2>
-        <div class="flex gap-6 w-4/5 mx-auto flex-wrap">
+
+        <div class="flex mb-4 gap-6 w-4/5 mx-auto flex-wrap justify-center">
             <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">General Practitioner</div>
             <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">Dentist</div>
             <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">Optometrist</div>
             <div class="border border-primary p-2 transition-colors duration-500 hover:bg-secondary cursor-pointer w-48">More ...</div>
         </div>
-
+        <p class="text-lg">Top picks</p>
         <!-- carousel -->
-     <div class="h-96 mt-8 mb-12 text-left flex justify-center gap-4">
-        <div class="w-64">
-            <HospitalBox 
-                name="Dr. Palesa Hlahatsi"
-                details="Taking care of all physical and metal health."
-                place="Johannesburg"
-                rating="4.0"
-            />
-        </div>
-        <div class="w-64">
-            <HospitalBox 
-                name="Dr. Palesa Hlahatsi"
-                details="Taking care of all physical and metal health."
-                place="Johannesburg"
-                rating="4.0"
-            />
-        </div>
-        <div class="w-64">
-            <HospitalBox 
-                name="Dr. Palesa Hlahatsi"
-                details="Taking care of all physical and metal health."
-                place="Johannesburg"
-                rating="4.0"
-            />
-        </div>
-        <div class="w-64">
-            <HospitalBox 
-                name="Dr. Palesa Hlahatsi"
-                details="Taking care of all physical and metal health."
-                place="Johannesburg"
-                rating="4.0"
-            />
-        </div>
+     <div class="mt-8 mb-12 flex justify-center gap-4 px-2 flex-wrap">
+        <DoctorCarousel />
      </div>
     </div>
  </section>
