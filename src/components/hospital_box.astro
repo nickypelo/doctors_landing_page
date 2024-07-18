@@ -3,11 +3,11 @@ const { name, details, place, rating } = Astro.props;
 
 ---
 
-<div class="h-[440px] text-sm bg-secondary text-primary">
+<div class=" text-sm bg-secondary text-primary mb-4 sm:mb-0">
     <figure class="h-[210px] bg-black"></figure>
     <div class="py-2 px-4">
-        <h4 class="text-xl font-bold mb-2">{name}</h4>
-        <p>{details}</p>
+        <h4 class="text-xl font-bold mb-2 truncate">{name}</h4>
+        <p class="max-h-[180px]">{details}</p>
         <p class="text-[12px] mt-2"><span class="font-black">Localization:</span> {place}</p>
         <p class="text-[12px] mt-2"><span class="font-black">Rating:</span> {rating}</p>
         <button class="font-bold px-2 w-32 h-10 transition-colors duration-500 bg-primary hover:bg-secondary border-primary border hover:text-primary text-secondary mt-4">

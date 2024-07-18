@@ -40,27 +40,27 @@ const details = [
 
 const hospitals = [
     {
-        name: "St. Mariot Hospital",
-        details: "The goal of the rural health clinic program is to provide better access to care in rural, underserved...",
+        name: "St. Mariote Hospital",
+        details: "The goal of the rural health clinic program is to provide better access to care in rural areas...",
         place: "Tokyo, Japan",
         rating: "4.9 | 5.0 "
     },
     {
-        name: "St. Civil Hospital",
-        details: "Rural health clinics serve people who have Medicare, Medicaid, or private insurance.",
+        name: "St. Civilize Hospital",
+        details: "The goal of the rural health clinic program is to provide better access to care in rural areas...",
         place: "Paris, France",
         rating: "4.9 | 5.0 "
     },
     {
         name: "St. Mentor Hospital",
-        details: "Rural health clinics provide medically necessary primary or preventive care. A service is considered...",
-        place: "New York, US ",
+        details: "The goal of the rural health clinic program is to provide better access to care in rural areas...",
+        place: "NY, America",
         rating: "4.9 | 5.0 "
     },
     {
         name: "St. Josheph Hospital",
-        details: "If the clinic doesn’t offer a specific service, the clinic staff may be able to arrange for you to receive medically...",
-        place: "Sydney, Australia ",
+        details: "The goal of the rural health clinic program is to provide better access to care in rural areas...",
+        place: "Sydney, Australia",
         rating: "4.9 | 5.0 "
     }
     
@@ -109,10 +109,21 @@ const hospitals = [
  </section>
 
  <!-- find hospital section -->
-<section class="bg-primary pt-24">
+<section class="bg-primary ">
 <div class="max-w-primary mx-auto md:grid md:grid-cols-2 py-10 items-center">
-    <div class="md:col-span-1 ">
-        <article class="md:grid md:grid-cols-2 gap-6">
+    <div class="md:col-span-1 order-2 text-secondary text-sm">
+        <div class="md:col-span-1 md:pl-8 px-2">
+            <h4 class="mb-4 font-semibold">Hospital</h4>
+            <h2 class="text-3xl md:text-5xl mb-6">Find <span class="font-bold">hospital</span></h2>
+            <p class="mb-4">Hospital, an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process.</p>
+            <button class="mb-10 font-bold w-24 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary border border-secondary">
+                Read More
+            </button>
+            <div class="bg-black h-96"></div>
+        </div>
+    </div>
+    <div class="md:col-span-1 order-1 pt-8 px-2">
+        <article class="sm:grid sm:grid-cols-2 gap-6">
             {hospitals.map(item =>(
                 <HospitalBox
                     name={item.name}
@@ -122,17 +133,6 @@ const hospitals = [
                 />
             ))}
         </article>
-    </div>
-    <div class="md:col-span-1 text-secondary text-sm">
-        <div class="md:col-span-1 pl-8">
-            <h4 class="mb-4 font-semibold">Hospital</h4>
-            <h2 class="text-5xl mb-6">Find <span class="font-bold">hospital</span></h2>
-            <p class="mb-4">Hospital, an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process.</p>
-            <button class="mb-10 font-bold w-24 text-primary h-10 bg-secondary transition-colors duration-500 hover:bg-primary hover:text-secondary border border-secondary">
-                Read More
-            </button>
-            <div class="bg-black h-96"></div>
-        </div>
     </div>
 </div>
 </section>
