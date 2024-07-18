@@ -1,67 +1,26 @@
-<!-- ---
-
----
-<div class="bg-gray-200 flex items-center justify-center h-screen">
-  <div class="carousel-container w-full max-w-4xl overflow-hidden relative">
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item bg-red-500 text-white text-center p-4">Item 1</div>
-        <div class="carousel-item bg-green-500 text-white text-center p-4">Item 2</div>
-        <div class="carousel-item bg-blue-500 text-white text-center p-4">Item 3</div>
-        <div class="carousel-item bg-yellow-500 text-white text-center p-4">Item 4</div>
-        <div class="carousel-item bg-purple-500 text-white text-center p-4">Item 5</div>
-        <div class="carousel-item bg-pink-500 text-white text-center p-4">Item 6</div>
-      </div>
-    </div>
-    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Prev</button>
-    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Next</button>
-  </div>
-</div>
-
-
-<script>
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  const carouselInner = document.querySelector('.carousel-inner');
-  const items = document.querySelectorAll('.carousel-item');
-  const itemWidth = items[0].clientWidth;
-  let currentIndex = 0;
-
-  prevButton?.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-    }
-  });
-
-  nextButton?.addEventListener('click', () => {
-    if (currentIndex < items.length - 3) {
-      currentIndex++;
-      carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-    }
-  });
-</script> -->
-
 ---
 export interface CarouselItem {
-  color: string;
-  text: string;
+  title: string;
+  details: string;
+  author: string;
+  date: string;
 }
 
 const items: CarouselItem[] = [
-  { color: 'bg-red-500', text: 'Item 1' },
-  { color: 'bg-green-500', text: 'Item 2' },
-  { color: 'bg-blue-500', text: 'Item 3' },
-  { color: 'bg-yellow-500', text: 'Item 4' },
-  { color: 'bg-purple-500', text: 'Item 5' },
-  { color: 'bg-pink-500', text: 'Item 6' },
+  { title: 'First Heart Surgery', details: "Join our vibrant community, engage in discussions, and stay informed about the latest developments in healthcare. ", author: 'Nicholas MJ', date: '07 April 2024' },
+  { title: 'Applying Ointment', details: "We're dedicated to promoting well-being, enhancing healthcare literacy, and ensuring access.", author: 'Palesa HL', date: '09 January 2023' },
+  { title: 'Cancer can be beat', details: "Join our vibrant community, engage in discussions, and stay informed about the latest developments in healthcare. ", author: 'Nicholas MJ', date: '16 February 2024' },
+  { title: 'For the children', details: "We're dedicated to promoting well-being, enhancing healthcare literacy, and ensuring access.", author: 'Palesa HL', date: '28 February 2024' },
+  { title: 'Medication', details: "Join our vibrant community, engage in discussions, and stay informed about the latest developments in healthcare. ", author: 'Nicholas MJ', date: '16 March 2024' },
+  { title: 'Meals for strength', details: "We're dedicated to promoting well-being, enhancing healthcare literacy, and ensuring access.", author: 'Palesa HL', date: '18 March 2024' },
+  { title: 'Physical advantages', details: "Join our vibrant community, engage in discussions, and stay informed about the latest developments in healthcare. ", author: 'Nicholas MJ', date: '26 May 2024' },
 ];
 
-// Cloning first and last 3 items for infinite scrolling
+// Cloning first and last 4 items for infinite scrolling
 const clonedItems = [
-  ...items.slice(-3),
+  ...items.slice(-4),
   ...items,
-  ...items.slice(0, 3),
+  ...items.slice(0, 4),
 ];
 ---
 <html>
@@ -75,25 +34,32 @@ const clonedItems = [
       display: flex;
       transition: transform 0.5s ease;
     }
-    .carousel-item {
-      min-width: calc(100% / 3);
-      flex: 0 0 calc(100% / 3);
-    }
   </style>
 </head>
 <body>
-  <div class="carousel-container w-full max-w-4xl overflow-hidden relative">
+  <div class="carousel-container w-full max-w-primary mx-auto overflow-hidden relative">
     <div class="carousel">
       <div class="carousel-inner" id="carouselInner">
         {clonedItems.map(item => (
-          <div class={`carousel-item ${item.color} text-white text-center p-4`}>
-            {item.text}
+          <div class="text-sm h-[400px] bg-secondary text-primary mb-4 sm:mb-0 w-[280px] mr-6 ">
+            <figure class="h-2/5 bg-black"></figure>
+            <div class="py-2 px-4 text-left">
+              <div class="h-[150px]">
+                <h4 class="text-xl font-bold mb-2 truncate">{item.title}</h4>
+                <p class="max-h-[180px] font-medium">{item.details}</p>
+                <p class="mt-2"><span class="font-black">Author:</span> {item.author}</p>
+                <p class="mt-2"><span class="font-black">Date:</span> {item.date}</p>
+              </div>
+              <button class="font-bold px-2 w-32 h-10 transition-colors duration-500 bg-primary hover:bg-secondary border-primary border hover:text-primary text-secondary mt-4">
+                Read More...
+              </button>
+            </div>
           </div>
         ))}
       </div>
     </div>
-    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Prev</button>
-    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Next</button>
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary border border-secondary text-secondary px-4 py-2">Prev</button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary border border-secondary text-secondary px-4 py-2">Next</button>
   </div>
 
   <script>
@@ -102,13 +68,13 @@ const clonedItems = [
       const nextButton = document.getElementById('next');
       const carouselInner = document.getElementById('carouselInner');
       const items = document.querySelectorAll('.carousel-item');
-      const itemWidth = items[0].clientWidth;
-      let currentIndex = 3;
+      const itemWidth = items[0].clientWidth + parseInt(getComputedStyle(items[0]).marginRight);
+      let currentIndex = 4;
 
       // Set initial position to show the first item in the original list
       carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-      prevButton!.addEventListener('click', () => {
+      prevButton?.addEventListener('click', () => {
         if (currentIndex > 0) {
           currentIndex--;
           carouselInner!.style.transition = 'transform 0.5s ease';
@@ -117,7 +83,7 @@ const clonedItems = [
           if (currentIndex === 0) {
             setTimeout(() => {
               carouselInner!.style.transition = 'none';
-              currentIndex = items.length - 6;
+              currentIndex = items.length;
               carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             }, 500);
           }
@@ -125,15 +91,15 @@ const clonedItems = [
       });
 
       nextButton?.addEventListener('click', () => {
-        if (currentIndex < items.length - 1) {
+        if (currentIndex < items.length + 4) {
           currentIndex++;
           carouselInner!.style.transition = 'transform 0.5s ease';
           carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-          if (currentIndex === items.length - 3) {
+          if (currentIndex === items.length + 4) {
             setTimeout(() => {
               carouselInner!.style.transition = 'none';
-              currentIndex = 3;
+              currentIndex = 4;
               carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             }, 500);
           }

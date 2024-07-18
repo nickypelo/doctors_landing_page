@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../layouts/Layout.astro';
+import ArticleCarousel from '../components/carousel.astro'
 ---
 
 <BaseLayout>
     <article class="bg-primary border-b border-secondary py-10">
         <div class="max-w-primary mx-auto text-secondary font-bold text-center">
             <h4>Hospital</h4>
-            <h2 class="text-4xl">Articles</h2>
-            <div class="max-w-primary h-[500px] mx-auto">
-            </div>
+            <h2 class="text-4xl mb-8">Articles</h2>
+            <!-- <div class="max-w-primary h-[500px] mx-auto">
+            </div> -->
+            <ArticleCarousel/>
         </div>
     </article>
 </BaseLayout>
