@@ -2,10 +2,10 @@
 const { header, information } = Astro.props;
 ---
 
-<div class="relative pt-6 w-[266px]">
+<div class="relative pt-6 w-full mb-4">
     <div class="group border border-primary bg-gray-200 transition-colors duration-500 hover:bg-primary">
         <div class="absolute top-0 left-1/2 transform -translate-x-1/2 mx-auto w-14 h-14 bg-primary rounded-full text-secondary flex justify-center items-center group-hover:border-4 group-hover:border-secondary">A</div>
-        <div class="pt-8 text-center group-hover:text-secondary px-4">
+        <div class="pt-8 text-center group-hover:text-secondary px-2">
             <h3 class="font-bold text-xl mb-2">{header}</h3>
             <p class="mb-2">{information}</p>
             <button class="font-bold px-2 w-28 h-10 bg-primary group-hover:bg-secondary group-hover:text-primary rounded-full text-secondary mb-4">

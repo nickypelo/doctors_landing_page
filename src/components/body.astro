@@ -18,7 +18,7 @@ const details = [
     },
     {
         header: "Cardiology Services",
-        information: "Cardiology focuses on the diagnosis and treatment of the cardiovascular..."
+        information: "Cardiology focuses on the diagnosis and treatment of the..."
     },
     {
         header: "Primary care clinics",
@@ -30,7 +30,7 @@ const details = [
     },
     {
         header: "Mental health clinics",
-        information: "The healthcare providers who work at a mental health clinic are focu..."
+        information: "The healthcare providers who work at a mental health clinic are..."
     },
     {
         header: "Dialysis clinics",
@@ -89,10 +89,10 @@ const hospitals = [
 
 <!-- find service section -->
  <section class="bg-secondary text-primary text-sm">
-    <div class="max-w-primary mx-auto md:grid md:grid-cols-2 py-10">
-        <div class="md:col-span-1 pr-8">
+    <div class="max-w-primary mx-auto lg:grid md:grid-cols-2 py-10 px-2">
+        <div class="lg:col-span-1 lg:pr-8 mb-8">
             <h4 class="mb-4 font-semibold">Hospital</h4>
-            <h2 class="text-5xl mb-6">Find <span class="font-bold">service</span></h2>
+            <h2 class="text-3xl md:text-5xl mb-6">Find <span class="font-bold">service</span></h2>
             <p class="mb-4">The medical care offered by a clinic may or may not be connected with a hospital.</p>
             <button class="mb-10 font-bold w-24 text-secondary h-10 bg-primary transition-colors duration-500 hover:bg-secondary hover:text-primary border border-primary">
                 Read More
@@ -100,7 +100,7 @@ const hospitals = [
             <div class="bg-black h-96"></div>
         </div>
 
-        <article class="md:grid md:grid-cols-2 gap-6">
+        <article class="sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6">
             {details.map(item =>(
                 <ServiceBox header={item.header} information={item.information}/>
             ))}
@@ -109,7 +109,7 @@ const hospitals = [
  </section>
 
  <!-- find hospital section -->
-<section class="bg-primary">
+<section class="bg-primary pt-24">
 <div class="max-w-primary mx-auto md:grid md:grid-cols-2 py-10 items-center">
     <div class="md:col-span-1 ">
         <article class="md:grid md:grid-cols-2 gap-6">
