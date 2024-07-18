@@ -1,0 +1,60 @@
+---
+
+export interface CarouselItem {
+  text: string;
+}
+
+const items: CarouselItem[] = [
+  { text: 'Clinics-Hospital' },
+  { text: 'Clinics-Hospital' },
+  { text: 'Clinics-Hospital' },
+  { text: 'Clinics-Hospital' },
+  { text: 'Clinics-Hospital' },
+  { text: 'Clinics-Hospital' },
+];
+
+// Cloning the items to create a seamless infinite loop
+const clonedItems = [...items, ...items];
+---
+<html>
+<head>
+  <style>
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .carousel-inner {
+      display: flex;
+      animation: scroll 20s linear infinite;
+    }
+    .carousel-item {
+      flex: 0 0 calc(100% / 3);
+      min-width: calc(100% / 3);
+      white-space: normal;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carousel-container w-full max-w-[1100px] mx-auto overflow-hidden relative px-8">
+    <div class="carousel">
+      <div class="carousel-inner">
+        {clonedItems.map(item => (
+          <div class={`carousel-item text-3xl font-black text-secondary text-center p-4 w-16`}>
+            {item.text}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

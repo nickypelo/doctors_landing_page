@@ -1,3 +1,145 @@
----
+<!-- ---
 
 ---
+<div class="bg-gray-200 flex items-center justify-center h-screen">
+  <div class="carousel-container w-full max-w-4xl overflow-hidden relative">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item bg-red-500 text-white text-center p-4">Item 1</div>
+        <div class="carousel-item bg-green-500 text-white text-center p-4">Item 2</div>
+        <div class="carousel-item bg-blue-500 text-white text-center p-4">Item 3</div>
+        <div class="carousel-item bg-yellow-500 text-white text-center p-4">Item 4</div>
+        <div class="carousel-item bg-purple-500 text-white text-center p-4">Item 5</div>
+        <div class="carousel-item bg-pink-500 text-white text-center p-4">Item 6</div>
+      </div>
+    </div>
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Prev</button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Next</button>
+  </div>
+</div>
+
+
+<script>
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const carouselInner = document.querySelector('.carousel-inner');
+  const items = document.querySelectorAll('.carousel-item');
+  const itemWidth = items[0].clientWidth;
+  let currentIndex = 0;
+
+  prevButton?.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+  });
+
+  nextButton?.addEventListener('click', () => {
+    if (currentIndex < items.length - 3) {
+      currentIndex++;
+      carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+  });
+</script> -->
+
+---
+export interface CarouselItem {
+  color: string;
+  text: string;
+}
+
+const items: CarouselItem[] = [
+  { color: 'bg-red-500', text: 'Item 1' },
+  { color: 'bg-green-500', text: 'Item 2' },
+  { color: 'bg-blue-500', text: 'Item 3' },
+  { color: 'bg-yellow-500', text: 'Item 4' },
+  { color: 'bg-purple-500', text: 'Item 5' },
+  { color: 'bg-pink-500', text: 'Item 6' },
+];
+
+// Cloning first and last 3 items for infinite scrolling
+const clonedItems = [
+  ...items.slice(-3),
+  ...items,
+  ...items.slice(0, 3),
+];
+---
+<html>
+<head>
+  <style>
+    .carousel {
+      display: flex;
+      overflow-x: hidden;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: calc(100% / 3);
+      flex: 0 0 calc(100% / 3);
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-container w-full max-w-4xl overflow-hidden relative">
+    <div class="carousel">
+      <div class="carousel-inner" id="carouselInner">
+        {clonedItems.map(item => (
+          <div class={`carousel-item ${item.color} text-white text-center p-4`}>
+            {item.text}
+          </div>
+        ))}
+      </div>
+    </div>
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Prev</button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2">Next</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const prevButton = document.getElementById('prev');
+      const nextButton = document.getElementById('next');
+      const carouselInner = document.getElementById('carouselInner');
+      const items = document.querySelectorAll('.carousel-item');
+      const itemWidth = items[0].clientWidth;
+      let currentIndex = 3;
+
+      // Set initial position to show the first item in the original list
+      carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+      prevButton!.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          carouselInner!.style.transition = 'transform 0.5s ease';
+          carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+          if (currentIndex === 0) {
+            setTimeout(() => {
+              carouselInner!.style.transition = 'none';
+              currentIndex = items.length - 6;
+              carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }, 500);
+          }
+        }
+      });
+
+      nextButton?.addEventListener('click', () => {
+        if (currentIndex < items.length - 1) {
+          currentIndex++;
+          carouselInner!.style.transition = 'transform 0.5s ease';
+          carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+          if (currentIndex === items.length - 3) {
+            setTimeout(() => {
+              carouselInner!.style.transition = 'none';
+              currentIndex = 3;
+              carouselInner!.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }, 500);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

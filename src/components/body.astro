@@ -1,6 +1,7 @@
 ---
 import ServiceBox from "./service_box.astro";
 import HospitalBox from "./hospital_box.astro";
+import Carousel from "./carousel.astro";
 
 const details = [
     {
@@ -64,6 +65,8 @@ const hospitals = [
     }
     
 ]
+
+
 ---
 
 
@@ -274,3 +277,6 @@ const hospitals = [
     </div>
 </section>
 
+<section class="bg-gray-200 flex items-center justify-center h-screen">
+    <Carousel/>
+</section>
